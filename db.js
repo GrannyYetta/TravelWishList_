@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
+import "dotenv/config";
 
-mongoose
-	.connect(process.env.CONNECTION_STRING)
-	.catch((error) => console.log(error));
+mongoose.connect(process.env.DB_URI);
+
+console.log(process.env.DB_URI)
