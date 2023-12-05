@@ -4,9 +4,10 @@ const { Schema } = mongoose;
 
 const CountrySchema = new Schema({
 	name: String,
-	alpha2code: { String },
-	alpha3code: { String },
+	alpha2code: { type: String },
+	alpha3code: { type: String },
 });
-export const CountryModel = mongoose.model("Country", CountrySchema);
 
+const CountryModel = mongoose.model("Country", CountrySchema);
 
+export default CountryModel;

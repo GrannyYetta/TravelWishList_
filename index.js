@@ -1,12 +1,13 @@
 import express from "express";
 import countryRouter from "./routes/countryRouter.js";
-import { createCountry } from "./controllers/countryController.js";
+import { connection } from "./db.js";
 
 const app = express();
 const PORT = 3000 || 8000;
 
+connection();
+
 app.use(express.json());
-app.get("/", createCountry)
 app.use("/api/countries", countryRouter);
 
 app.listen(PORT, () => {
