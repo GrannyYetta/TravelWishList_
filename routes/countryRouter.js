@@ -7,17 +7,18 @@ import {
 	updateCountry,
 	deleteCountry,
 } from "../controllers/countryController.js";
+import { getQuery } from "../middlewares/queryMiddleware.js";
 
 const countryRouter = express.Router();
 
-countryRouter.get("/:id", getCountry);
+countryRouter.get("/:countryCode", getQuery, getCountry);
 
 countryRouter.get("/", getCountries);
 
 countryRouter.post("/", createCountry);
 
-countryRouter.put("/:id", updateCountry);
+countryRouter.put("/:countryCode", getQuery, updateCountry);
 
-countryRouter.delete("/id", deleteCountry);
+countryRouter.delete("/:countryCode", getQuery, deleteCountry);
 
 export default countryRouter;
