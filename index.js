@@ -1,12 +1,12 @@
 import express from "express";
 import countryRouter from "./routes/countryRouter.js";
 import { connection } from "./db.js";
+import { getQuery } from "./middlewares/queryMiddleware.js";
 
 const app = express();
 const PORT = 3000 || 8000;
 
 connection();
-
 app.use(express.json());
 app.use("/api/countries", countryRouter);
 

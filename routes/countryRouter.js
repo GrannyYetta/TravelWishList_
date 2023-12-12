@@ -11,14 +11,12 @@ import { getQuery } from "../middlewares/queryMiddleware.js";
 
 const countryRouter = express.Router();
 
-countryRouter.get("/:countryCode", getQuery, getCountry);
+countryRouter.route("/").get(getCountries).post(createCountry);
 
-countryRouter.get("/", getCountries);
-
-countryRouter.post("/", createCountry);
-
-countryRouter.put("/:countryCode", getQuery, updateCountry);
-
-countryRouter.delete("/:countryCode", getQuery, deleteCountry);
+countryRouter
+	.route("/:countryCode")
+	.get(getQuery,getCountry)
+	.put(getQuery,updateCountry)
+	.delete(getQuery,deleteCountry);
 
 export default countryRouter;
