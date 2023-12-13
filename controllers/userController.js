@@ -40,3 +40,12 @@ const { username, password } = req.body
         res.status(500).json({ msg: error.message });
     }
 }
+
+export const deleteUser = async (req, res) => {
+    const {firstname, lastname, username, email, password} = req.body
+    try {
+        const user = await userModel.delete
+    } catch (error) {
+        
+    }
+}
